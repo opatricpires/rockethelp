@@ -14,21 +14,31 @@ import { Order, OrderProps } from "../components/Order";
 import { Button } from "../components/Button";
 import { Filter } from "../components/Filter";
 import Logo from "../assets/logo_secondary.svg";
+import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 
 export function Home() {
+  const navigation = useNavigation();
   const { colors } = useTheme();
   const [statusSelected, setStatusSelected] = useState<"open" | "closed">(
     "open"
   );
   const [orders, setOrders] = useState<OrderProps[]>([
     {
-      id: "123",
+      id: "32345",
       patrimony: "5454353",
       when: "18/07/2022 as 10:00",
       status: "open",
     },
   ]);
+
+  function handleNewOrder() {
+    navigation.navigate("new");
+  }
+
+  function handleOpenDetails(orderId: string) {
+    navigation.navigate("details", { orderId });
+  }
 
   return (
     <VStack flex={1} pb={6} bg="gray.700">
@@ -53,8 +63,8 @@ export function Home() {
           justifyContent="space-between"
           alignItems="center"
         >
-          <Heading color="gray.100">Meus chamados</Heading>
-          <Text color="gray.200">3</Text>
+          <Heading color="gray.100">Solicitações</Heading>
+          <Text color="gray.200">{orders.length}</Text>
         </HStack>
 
         <HStack space={3} mb={8}>
@@ -75,7 +85,9 @@ export function Home() {
         <FlatList
           data={orders}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <Order data={item} />}
+          renderItem={({ item }) => (
+            <Order data={item} onPress={() => handleOpenDetails(item.id)} />
+          )}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingBottom: 100 }}
           ListEmptyComponent={() => (
@@ -89,7 +101,7 @@ export function Home() {
             </Center>
           )}
         />
-        <Button title="Nova solicitação" />
+        <Button title="Nova solicitação" onPress={handleNewOrder} />
       </VStack>
     </VStack>
   );
