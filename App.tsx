@@ -5,8 +5,10 @@ import {
   useFonts,
 } from "@expo-google-fonts/roboto";
 
-import { Loading } from "./src/components/Loding";
+import { Home } from "./src/screens/Home";
+import { Loading } from "./src/components/Loading";
 import React from "react";
+import { Register } from "./src/screens/Register";
 import { SignIn } from "./src/screens/SignIn";
 import { THEME } from "./src/styles/theme";
 
@@ -20,7 +22,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      {fontsLoaded ? <SignIn /> : <Loading />}
+      {fontsLoaded ? <Register /> : <Loading />}
     </NativeBaseProvider>
   );
 }
