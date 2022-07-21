@@ -26,22 +26,16 @@ export function Header({ title, ...rest }: Props) {
       w="full"
       justifyContent="space-between"
       alignItems="center"
-      pb={6}
+      bg="gray.600"
       pt={12}
-      {...rest}
+      pb={5}
+      px={6}
     >
       <IconButton
-        icon={<CaretLeft color={colors.gray[200]} />}
-        size={24}
+        icon={<CaretLeft size={26} color={colors.gray[300]} />}
         onPress={handleGoBack}
       />
-      <Heading
-        color="gray.100"
-        textAlign="center"
-        fontSize="lg"
-        flex={1}
-        ml={-6}
-      >
+      <Heading color="gray.100" textAlign="center" fontSize="lg">
         {title}
       </Heading>
     </HStack>
