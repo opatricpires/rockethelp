@@ -1,8 +1,9 @@
+import { Box, VStack } from "native-base";
+
 import { Alert } from "react-native";
 import { Button } from "../components/Button";
 import { Header } from "../components/Header";
 import { Input } from "../components/Input";
-import { VStack } from "native-base";
 import firestore from "@react-native-firebase/firestore";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
@@ -44,13 +45,9 @@ export function Register() {
   }
 
   return (
-    <VStack flex={1} p={6} bg="gray.600">
-      <Header title="Nova solicitação" />
-      <Input
-        placeholder="Número do patrimônio"
-        mt={4}
-        onChangeText={setPatrimony}
-      />
+    <VStack flex={1} px={6} bg="gray.600">
+      <Header title="Solicitação" />
+      <Input placeholder="Número do patrimônio" onChangeText={setPatrimony} />
       <Input
         placeholder="Deescrição do problema"
         flex={1}
