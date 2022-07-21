@@ -11,6 +11,7 @@ install! 'cocoapods',
 
 target 'rockethelp' do
   use_expo_modules!
+  use_frameworks! :linkage => :static
   config = use_native_modules!
 
   use_frameworks! :linkage => podfile_properties['ios.useFrameworks'].to_sym if podfile_properties['ios.useFrameworks']
@@ -24,6 +25,7 @@ target 'rockethelp' do
     :fabric_enabled => flags[:fabric_enabled],
     # An absolute path to your application root.
     :app_path => "#{Dir.pwd}/.."
+    
   )
 
   # Uncomment to opt-in to using Flipper
