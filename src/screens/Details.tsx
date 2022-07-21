@@ -1,6 +1,6 @@
 import {
   CircleWavyCheck,
-  Clipboard,
+  ClipboardText,
   DesktopTower,
   Hourglass,
 } from "phosphor-react-native";
@@ -104,7 +104,7 @@ export function Details() {
 
   return (
     <VStack flex={1} bg="gray.700">
-      <Header title="Solicitações" />
+      <Header title="Detalhes da solicitação" />
       <HStack bg="gray.500" justifyContent="center" p={4}>
         {order.status === "closed" ? (
           <CircleWavyCheck size={22} color={colors.green[300]} />
@@ -129,12 +129,12 @@ export function Details() {
           title="equipamento"
           description={`Patrimonio ${order.patrimony}`}
           icon={DesktopTower}
-          footer={order.when}
         />
         <CardDetails
           title="descrição do problema"
           description={order.description}
-          icon={Clipboard}
+          icon={ClipboardText}
+          footer={`Registrado em ${order.when}`}
         />
         <CardDetails
           title="solução"
