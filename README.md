@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://gitpoint.co/">
+  <a href="#">
     <img alt="GitPoint" title="GitPoint" src="./src/assets/logo_primary.svg" width="150">
   </a>
 </p>
@@ -11,7 +11,7 @@ Open, see and solve you company problems.
 </br>
 
 <p align="center">
-  <a href="https://gitpoint.co/">
+  <a href="#">
     <img alt="GitPoint" title="GitPoint" src="./src/assets/frames.png">
   </a>
 </p>
